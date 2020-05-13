@@ -28,18 +28,18 @@ module onehot_encoding(
 		mealy_ns = 4'b0;   //crux-here we cant leave the else part coz we have to initilaize ns by 0000 or else 0011 will 
 		mealy_out = 1'b0;                                           //also come in output
 		case (1'b1)			
-		   mealy_ps[MEALY_IDLE]: if(in)
+			mealy_ps[MEALY_IDLE]: if(in)
 			                      mealy_ns[MEALY_A] = 1'b1;
-										 else
-										 mealy_ns = mealy_ps;
+					      else
+					      mealy_ns = mealy_ps;
 			mealy_ps[MEALY_A]:    if(in)
 			                      mealy_ns[MEALY_B] = 1'b1;
 			                      else
 			                      mealy_ns[MEALY_IDLE] = 1'b1;
 			mealy_ps[MEALY_B]:    if(~in)
 			                      mealy_ns[MEALY_C] = 1'b1;
-										 else
-										 mealy_ns = mealy_ps;
+                                              else
+			                      mealy_ns = mealy_ps;
 			mealy_ps[MEALY_C]:    if(in) 
 			                      begin
 			                      mealy_ns[MEALY_A] = 1'b1;
