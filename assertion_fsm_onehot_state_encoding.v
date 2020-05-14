@@ -1,4 +1,4 @@
-//
+
 module assertion_fsm(
   input in,clk,reset,mealy_out,
   input [3:0]mealy_ps,mealy_ns);
